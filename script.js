@@ -33,6 +33,9 @@ function add(x){
     tick.className = "fa-solid fa-circle-check";
     tick.style.color = "lightgrey";
     tick.addEventListener("click", () => {
+        const y = text.innerText;
+        item.remove();
+        done(y);
         tick.style.color = "limegreen";
       })
     
@@ -47,4 +50,38 @@ function add(x){
 
     input.value = '';
 
+}
+
+function done(y){
+    const item = document.createElement("div");
+    item.classList.add("item");
+
+    const text =  document.createElement("div");
+    text.innerText=y;
+
+    const icons =  document.createElement("div");
+
+    const trash = document.createElement("i");
+    trash.className = "fa-solid fa-trash";
+    trash.addEventListener("click",()=>{
+        item.remove();
+    })
+    
+    const tick = document.createElement("i");
+    tick.className = "fa-solid fa-circle-check";
+    tick.style.color = "limegreen";
+    tick.addEventListener("click", () => {
+        const y = text.innerText;
+        item.remove();
+        add(y);
+      })
+    
+      icons.appendChild(tick);
+    icons.appendChild(trash);
+    
+
+    item.appendChild(text);
+    item.appendChild(icons);
+
+    items.appendChild(item);
 }
