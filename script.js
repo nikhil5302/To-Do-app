@@ -72,8 +72,7 @@ function done(y){
     tick.style.color = "limegreen";
     tick.addEventListener("click", () => {
         const y = text.innerText;
-        item.remove();
-        add(y);
+        tick.style.color = "lightgrey";
       })
     
       icons.appendChild(tick);
